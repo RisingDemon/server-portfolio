@@ -33,10 +33,10 @@ const coldBoot = async (req, res) => {
       console.log("Email sent");
       const msg2 = {
         to: "sahil.dixit15.sd@gmail.com",
-        from: reqBody.email,
-        subject: "New user subscribed",
-        text: `${reqBody.message}`,
-        html: `<strong>${reqBody.message}</strong>`,
+        from: "sahildixit9969@gmail.com",
+        subject: `New user subscribed, ${reqBody.name}`,
+        text: `Email: ${reqBody.email} message: ${reqBody.message}`,
+        html: `<strong>Email: ${reqBody.email} message: ${reqBody.message}</strong>`,
         };
         await sgMail.send(msg2);
         console.log("Boss notified");
