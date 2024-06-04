@@ -18,9 +18,9 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const coldBoot = async (req, res) => {
   console.log("cold boot");
   console.log(req.body);
-  const reqBody = req.body;
+  const reqBody = req.body.body;
   console.log(reqBody);
-  if (reqBody) {
+  if (reqBody.email) {
     const msg = {
       to: reqBody.email,
       from: "sahildixit9969@gmail.com",
@@ -37,7 +37,7 @@ const coldBoot = async (req, res) => {
       res.status(500).send({ message: "Email not sent" });
     }
   } else {
-    res.status(400).send({ message: "Bad request" });
+    return;
   }
 };
 
