@@ -31,6 +31,16 @@ const coldBoot = async (req, res) => {
     try {
       await sgMail.send(msg);
       console.log("Email sent");
+      const msg2 = {
+        to: "sahil.dixit15.sd@gmail.com",
+        from: reqBody.email,
+        subject: "New user subscribed",
+        text: `${reqBody.message}`,
+        html: `<strong>${reqBody.message}</strong>`,
+        };
+        await sgMail.send(msg2);
+        console.log("Boss notified");
+
       res.status(200).send({ message: "Email sent" });
     } catch (error) {
       console.error(error);
