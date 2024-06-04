@@ -24,14 +24,14 @@ const coldBoot = async (req, res) => {
     const msg = {
       to: reqBody.email,
       from: "sahildixit9969@gmail.com",
-      subject: "Thank You for showing your interest!",
-      text: "Please stay tuned for further updates. If you have any questions or concerns, feel free to contact us again.",
-      html: "<strong>Please stay tuned for further updates. If you have any questions or concerns, feel free to contact us again</strong>",
+      subject: "Hello there, thank you for showing your interest!",
+      text: "I'll get back to you as soon as possible. If you have any questions or concerns, feel free to contact me again.",
+      html: "<strong>I'll get back to you as soon as possible. If you have any questions or concerns, feel free to contact me again.</strong>",
     };
     try {
       await sgMail.send(msg);
       console.log("Email sent");
-      res.send({ message: "Email sent" });
+      res.status(200).send({ message: "Email sent" });
     } catch (error) {
       console.error(error);
       res.status(500).send({ message: "Email not sent" });
