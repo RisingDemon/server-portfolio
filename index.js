@@ -1,11 +1,17 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import sgMail from "@sendgrid/mail";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(express.json());
+app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
