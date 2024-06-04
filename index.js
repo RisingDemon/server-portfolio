@@ -18,8 +18,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const coldBoot = async (req, res) => {
   console.log("cold boot");
   console.log(req.body);
-  const reqBody = req.body.body;
-  console.log(reqBody);
+  const reqBody = JSON.parse(req.body.body);
+  console.log(reqBody.email);
   if (reqBody.email) {
     const msg = {
       to: reqBody.email,
